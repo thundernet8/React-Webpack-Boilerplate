@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/thundernet8/StarCabinet.git"
+    "url": "git+https://github.com/thundernet8/React-Webpack-Boilerplate.git"
   },
   "keywords": [
     "React",
@@ -24,9 +24,9 @@
   },
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/thundernet8/StarCabinet/issues"
+    "url": "https://github.com/thundernet8/React-Webpack-Boilerplate/issues"
   },
-  "homepage": "https://github.com/thundernet8/StarCabinet#readme",
+  "homepage": "https://github.com/thundernet8/React-Webpack-Boilerplate#readme",
   "devDependencies": {
     "@types/react": "^15.0.12",
     "@types/react-dom": "^0.14.23",
