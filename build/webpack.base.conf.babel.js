@@ -108,8 +108,6 @@ export default {
     ]
   },
   plugins: [
-    new webpack.optimize.OccurrenceOrderPlugin(),
-    // extract css to one file
-    new ExtractTextPlugin({filename: process.env.NODE_ENV === 'production' ? 'style.min.css' : 'style.css', disable: false, allChunks: true}),
+    new webpack.optimize.OccurrenceOrderPlugin()
   ]
 }

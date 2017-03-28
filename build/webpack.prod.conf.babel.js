@@ -42,6 +42,8 @@ let appProdConfig = {
         NODE_ENV: JSON.stringify('production')
       }
     }),
+    // 生产环境抽离样式至单独文件
+    new ExtractTextPlugin({filename: 'style.min.css', disable: false, allChunks: true}),
     new webpack.optimize.UglifyJsPlugin({
       compress: {
         warnings: false

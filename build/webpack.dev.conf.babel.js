@@ -20,7 +20,7 @@ let devConfig = {
 
   output: {
     path: path.resolve(__dirname, '../dist'),
-    publicPath: `http://localhost:${port}/static/`
+    publicPath: `/`
   },
 
   module: {
