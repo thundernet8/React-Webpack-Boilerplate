@@ -4,6 +4,7 @@ import baseConfig                     from './webpack.base.conf.babel'
 import HtmlWebpackPlugin              from 'html-webpack-plugin'
 import merge                          from 'webpack-merge'
 import OptimizeCssAssetsPlugin        from 'optimize-css-assets-webpack-plugin'
+import ExtractTextPlugin              from 'extract-text-webpack-plugin'
 
 baseConfig.entry = {}
 
@@ -32,6 +33,36 @@ let appProdConfig = {
         test: /\.jsx$/,
         loader: 'babel-loader?presets[]=react&presets[]=es2015&presets[]=es2017&presets[]=stage-2',
         exclude: /node_modules/
+      },
+      {
+        test: /\.css$/,
+        include: [/global/, /node_modules/],
+        loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader?sourceMap!postcss-loader'})
+      },
+      {
+        test: /\.css$/,
+        exclude: [/global/, /node_modules/],
+        loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader'})
+      },
+      {
+        test: /\.less$/,
+        include: [/global/, /node_modules/],
+        loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader?sourceMap!postcss-loader!less-loader'})
+      },
+      {
+        test: /\.less$/,
+        exclude: [/global/, /node_modules/],
+        loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader!less-loader'})
+      },
+      {
+        test: /\.scss$/,
+        include: [/global/, /node_modules/],
+        loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader?sourceMap!postcss-loader!sass-loader'})
+      },
+      {
+        test: /\.scss$/,
+        exclude: [/global/, /node_modules/],
+        loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader!sass-loader'})
       }
     ]
   },
@@ -57,7 +88,7 @@ let appProdConfig = {
     }),
     // see https://github.com/ampedandwired/html-webpack-plugin
     new HtmlWebpackPlugin({
-      filename: '../../dist/index.html',
+      filename: '../dist/index.html',
       template: 'src/index.html',
       inject: true,
       minify: {

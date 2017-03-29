@@ -1,6 +1,5 @@
 import path               from 'path'
 import webpack            from 'webpack'
-import ExtractTextPlugin  from 'extract-text-webpack-plugin'
 
 export default {
   // http://webpack.github.io/docs/configuration.html#node
@@ -52,36 +51,6 @@ export default {
       {
         test: /\.json$/,
         loader: 'json-loader'
-      },
-      {
-        test: /\.css$/,
-        include: [/global/, /node_modules/],
-        loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader?sourceMap!postcss-loader'})
-      },
-      {
-        test: /\.css$/,
-        exclude: [/global/, /node_modules/],
-        loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader'})
-      },
-      {
-        test: /\.less$/,
-        include: [/global/, /node_modules/],
-        loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader?sourceMap!postcss-loader!less-loader'})
-      },
-      {
-        test: /\.less$/,
-        exclude: [/global/, /node_modules/],
-        loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader!less-loader'})
-      },
-      {
-        test: /\.scss$/,
-        include: [/global/, /node_modules/],
-        loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader?sourceMap!postcss-loader!sass-loader'})
-      },
-      {
-        test: /\.scss$/,
-        exclude: [/global/, /node_modules/],
-        loader: ExtractTextPlugin.extract({fallback: 'style-loader', use: 'css-loader?modules&sourceMap&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]!postcss-loader!sass-loader'})
       },
       {
         test: /\.(png|jpg|gif)$/,

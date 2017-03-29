@@ -35,7 +35,7 @@ app.use(devMiddleware)
 // compilation error display
 app.use(hotMiddleware)
 // serve pure static assets
-app.use('/static', express.static('./static'))
+app.use('/static', express.static('./dist'))
 
 const server = app.listen(PORT, 'localhost', err => {
   if (err) {
